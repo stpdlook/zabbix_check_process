@@ -1,0 +1,39 @@
+zabbix_export:
+  version: '5.4'
+  date: '2024-01-16T06:24:47Z'
+  groups:
+    -
+      uuid: 8902403428c74c80b8a71a3077baaf5d
+      name: BareMetal
+  templates:
+    -
+      uuid: c07af4c572c14199b7726f7bc69e9664
+      template: Zabbix_IOPS
+      name: Zabbix_IOPS
+      groups:
+        -
+          name: BareMetal
+      discovery_rules:
+        -
+          uuid: aa225d9577b547fbab4507d3338626fa
+          name: 'Proccess Info'
+          type: ZABBIX_ACTIVE
+          key: proc.discovery
+          filter:
+            conditions:
+              -
+                macro: '{#PROC}'
+                value: '.*'
+                formulaid: A
+          item_prototypes:
+            -
+              uuid: eaf0ab7ee18c4aa0b3feba0791969924
+              name: 'Запись на диск {#PROC}'
+              key: 'proc.write[{#PROC}]'
+              delay: 3m
+              tags:
+                -
+                  tag: 'Proccess Info'
+      tags:
+        -
+          tag: ProccessInfo

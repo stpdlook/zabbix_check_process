@@ -4,7 +4,7 @@
 #    rm -rf /etc/zabbix/scripts/iops.json
 #fi
 
-proc_file="/etc/zabbix/scripts/procces_name"
+proc_file="/etc/zabbix/scripts/process_name"
 
 sudo top -b -n 1 | awk '{ print $12 }' | tail +8 | sort -u > $proc_file
 

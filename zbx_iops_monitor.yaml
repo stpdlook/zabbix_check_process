@@ -16,7 +16,7 @@ zabbix_export:
       discovery_rules:
         -
           uuid: aa225d9577b547fbab4507d3338626fa
-          name: 'Proccess Info'
+          name: 'Process Info'
           type: ZABBIX_ACTIVE
           key: proc.discovery
           filter:
@@ -33,7 +33,7 @@ zabbix_export:
               delay: 3m
               tags:
                 -
-                  tag: 'Proccess Info'
+                  tag: 'Process Info'
       tags:
         -
-          tag: ProccessInfo
+          tag: ProcessInfo
